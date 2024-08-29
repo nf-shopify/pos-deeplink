@@ -1,16 +1,18 @@
 //state
 let orderCreated = false;
 let id;
-const button = document.getElementById("orderButton");
+const buttonEl = document.querySelector("button.order-button")
+const draftOrderMsgEl = document.querySelector("p.draft-order-msg")
 
-button.addEventListener("click", toggleCart);
+buttonEl.addEventListener("click", toggleCart);
 
-function toggleCart() {
+async function toggleCart() {
   if (!orderCreated) {
     orderCreated = true;
-    console.log("About to create draft Order");
-    createDraftOrder();
-    button.textContent = "Open Order in Shopify POS";
+    console.log("Creating Draft Order");
+    const id  = await createDraftOrder();
+    buttonEl.textContent = "Open Order in Shopify POS";
+    draftOrderMsgEl.textContent =`Draft Order Created via Admin API - ID : ${id}`
   } else {
     window.location.href =
       `com.shopify.pos://orders/draftOrderDetails/${id}`;
@@ -22,4 +24,5 @@ async function createDraftOrder() {
     draftOrderData = await res.json();
     console.log(draftOrderData);
     id  = draftOrderData?.draftOrderCreate?.draftOrder?.legacyResourceId
+    return id;
   }
