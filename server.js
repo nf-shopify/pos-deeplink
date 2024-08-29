@@ -14,6 +14,7 @@ const PORT = process.env.PORT || 8000;
 /*----- Middleware Pipe ------*/
 app.use(cors());
 app.use(logger("dev"));
+app.use(express.static('public'))
 
 /*----- Routes ------*/
 app.get("/", (req, res) => {
