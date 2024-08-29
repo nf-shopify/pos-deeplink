@@ -3,7 +3,7 @@ const express = require("express");
 const cors = require("cors");
 const logger = require("morgan");
 require("dotenv").config();
-const draftsOrderRouter = require("./routes/draftOrders")
+const draftsOrderRouter = require("./routes/draftOrders");
 
 /*----- Express App ------*/
 const app = express();
@@ -15,13 +15,12 @@ const PORT = process.env.PORT || 8000;
 app.use(cors());
 app.use(logger("dev"));
 
-
 /*----- Routes ------*/
 app.get("/", (req, res) => {
-    res.json({ serverStatus: "Online" });
-  });
+  res.sendFile(__dirname + "/public/index.html");
+});
 
-  app.use('/draftorders', draftsOrderRouter)
+app.use("/draftorders", draftsOrderRouter);
 
 /*----- Listener ------*/
 app.listen(PORT, function () {

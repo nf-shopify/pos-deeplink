@@ -18,8 +18,7 @@ function toggleCart() {
 }
 
 async function createDraftOrder() {
-    const PORT = process.env.PORT;
-    const res = await fetch(`http://localhost:${PORT}/draftorders`);
+    const res = await fetch(`httsp://localhost/draftorders`);
     draftOrderData = await res.json();
     id  = draftOrderData?.draftOrderCreate?.draftOrder?.legacyResourceId
   }
