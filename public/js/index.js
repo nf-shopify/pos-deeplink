@@ -18,7 +18,8 @@ function toggleCart() {
 }
 
 async function createDraftOrder() {
-    const res = await fetch(`httsp://localhost/draftorders`);
+    const res = await fetch("/draftorders");
     draftOrderData = await res.json();
+    console.log(draftOrderData);
     id  = draftOrderData?.draftOrderCreate?.draftOrder?.legacyResourceId
   }
