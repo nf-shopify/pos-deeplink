@@ -1,41 +1,60 @@
+/* General Body and Typography Styles */
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f4f4f4;
+  font-family: "lato", "Arial", sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 20px;
+  color: #333;
 }
 
-.container {
-    text-align: center;
-    background: white;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    border-radius: 8px;
+h1 {
+  color: #333;
+  text-align: center;
 }
 
-input[type="text"] {
-    margin-top: 10px;
-    padding: 10px;
-    width: calc(100% - 22px);
-    box-sizing: border-box;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+/* Container Styles */
+.draft-order-container,
+.deeplink-container {
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 1rem auto;
+  max-width: 80%;
 }
 
+/* Button Styles */
 button {
-    margin-top: 30px; /* Increased from 20px to 30px */
-    padding: 10px 20px;
-    border: none;
-    background-color: #007BFF;
-    color: white;
-    border-radius: 4px;
-    cursor: pointer;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: .5rem .5rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: .5rem;
 }
 
 button:hover {
-    background-color: #0056b3;
+  background-color: #0056b3;
+}
+
+.deeplink-input-group,
+.draft-order-input-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Vertically centers items */
+  margin-bottom: 5px; /* Adds space between groups */
+  border-color: #333;
+  border: 1px;
+}
+
+.deeplink-input-group label,
+.deeplink-input-group input,
+.deeplink-input-group button {
+  flex: 50%; /* Allows each item to take full width on small screens */
+  text-align: center; /* Centers text within each element */
+  margin-bottom: 5px; /* Adds space between elements */
 }

@@ -3,18 +3,36 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Shopify POS Deep Link Example</title>
+    <title>Shopify POS Deep Link Simulator</title>
     <link rel="stylesheet" href="./css/style.css" />
     <script defer src="./js/index.js"></script>
   </head>
   <body>
-    <div class="container">
-      <h1>My Customer App</h1>
-      <label for="customer-name">Customer Name: Neilson Flemming</label>
-      <button class="order-button">
-        Create Order in Shopify POS
-      </button>
-      <p class="draft-order-msg"> </p>
+    <div class="deeplink-container">
+      <h1>Shopify POS Deep Link Generator</h1>
+      <div class="deeplink-input-group">
+        <label for="order">Order ID:</label>
+        <input type="text" id="order-id" />
+        <button class="order-button">Generate Order Deep Link</button>
+      </div>
+
+      <div class="deeplink-input-group">
+        <label for="draft-order">Draft Order ID:</label>
+        <input type="text" id="draft-order-id" />
+        <button class="draft-order-button">Generate Draft Order Deep Link</button>
+      </div>
+
+      <div class="deeplink-input-group">
+        <label for="checkout-token">Checkout Token ID:</label>
+        <input type="text" id="checkout-token-id" />
+        <button class="checkout-token-button">Generate ShopPay Checkout Deep Link</button>
+      </div>
+
+      <div class="deeplink-input-group">
+        <label for="pos-app">POS App ID:</label>
+        <input type="text" id="pos-app-id" />
+        <button class="pos-app-button">Generate POS App Deep Link</button>
+      </div>
     </div>
   </body>
 </html>

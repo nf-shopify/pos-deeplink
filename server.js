@@ -9,19 +9,27 @@ const draftsOrderRouter = require("./routes/draftOrders");
 const app = express();
 
 // use port 80 unless there exists a preconfigured port
-const PORT = process.env.PORT || 8000;
+const PORT = process.env.PORT || 8001;
 
 /*----- Middleware Pipe ------*/
 app.use(cors());
 app.use(logger("dev"));
+//Serving up Static HTML, JS ,CSS from public folder
 app.use(express.static('public'))
+//Handle POST/PUT Requests
+app.use(express.json());
 
 /*----- Routes ------*/
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/public/index.html");
 });
 
-app.use("/draftorders", draftsOrderRouter);
+app.get("/draftordersim", (req, res) => {
+  res.sendFile(__dirname + "/public/draftOrderSim.html");
+});
+
+
+app.use("/api/draftorders", draftsOrderRouter);
 
 /*----- Listener ------*/
 app.listen(PORT, function () {
